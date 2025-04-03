@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Username Password Input</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    label, input, button {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    input, button {
+      padding: 10px;
+      width: 250px;
+      margin: 5px 0;
+    }
+
+    button {
+      background-color: #EC7FA9;
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+    <h2>Login Form</h2>
+    <!-- Input Username Field -->
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="Enter username"><br>
+
+    <!-- Input Password Field -->
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter password"><br>
+
+    <button onclick="submitForm()">Submit</button>
+  </div>
+  
+  <!-- Functions -->
+  <script>
+    function submitForm() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      console.log(`Username: ${username}`);
+      console.log(`Password: ${password}`);
+
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+      if (passwordRegex.test(password)) {
+        alert(`Welcome, ${username}!`);
+      } else {
+        alert('Password must be more than 8 characters long and contain both uppercase and lowercase letters.');
+      }
+    }
+  </script>
+</body>
+</html>
